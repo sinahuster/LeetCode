@@ -19,24 +19,11 @@ The number of nodes in the list is in the range [1, 100].
 struct ListNode* middleNode(struct ListNode* head) {
     struct ListNode* fast = head;
     struct ListNode* slow = head;
-    int length = 0;
-    int count = 0;
 
     while (fast != NULL && fast->next != NULL)
     {
         slow = slow->next;
         fast = fast->next->next;
-        length += 2;
-        count++;
-    }
-    if (fast != NULL)
-    {
-        length++;
-    }
-
-    if (length / 2 > count)
-    {
-        slow = slow->next;
     }
 
     return slow;
