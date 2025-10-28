@@ -40,81 +40,77 @@ int romanToInt(char* s)
     int value = 0;
     for (int i = strlen(s) - 1; i >= 0; i--)
     {
-        if (s[i] == 'I')
+        switch(s[i])
         {
-            value++;
-        }
-        else if (s[i] == 'V')
-        {
-            if (i > 0 && s[i - 1] == 'I')
-            {
-                value += 4;
-                i--;
-            }
-            else 
-            {
-                value += 5;
-            }
-        }
-        else if (s[i] == 'X')
-        {
-            if (i > 0 && s[i - 1] == 'I')
-            {
-                value += 9;
-                i--;
-            }
-            else 
-            {
-                value += 10;
-            }
-        }
-        else if (s[i] == 'L')
-        {
-            if (i > 0 && s[i - 1] == 'X')
-            {
-                value += 40;
-                i--;
-            }
-            else 
-            {
-                value += 50;
-            }
-        }
-        else if (s[i] == 'C')
-        {
-            if (i > 0 && s[i - 1] == 'X')
-            {
-                value += 90;
-                i--;
-            }
-            else 
-            {
-                value += 100;
-            }
-        }
-        else if (s[i] == 'D')
-        {
-            if (i > 0 && s[i - 1] == 'C')
-            {
-                value += 400;
-                i--;
-            }
-            else 
-            {
-                value += 500;
-            }
-        }
-        else if (s[i] == 'M')
-        {
-            if (i > 0 && s[i - 1] == 'C')
-            {
-                value += 900;
-                i--;
-            }
-            else 
-            {
-                value += 1000;
-            }
+            case 'I':
+                value++;
+                break;
+            case 'V':
+                if (i > 0 && s[i - 1] == 'I')
+                {
+                    value += 4;
+                    i--;
+                }
+                else 
+                {
+                    value += 5;
+                }
+                break;
+            case 'X': 
+                if (i > 0 && s[i - 1] == 'I')
+                {
+                    value += 9;
+                    i--;
+                }
+                else 
+                {
+                    value += 10;
+                }
+                break;
+            case 'L':
+                if (i > 0 && s[i - 1] == 'X')
+                {
+                    value += 40;
+                    i--;
+                }
+                else 
+                {
+                    value += 50;
+                }
+                break;
+            case 'C': 
+                if (i > 0 && s[i - 1] == 'X')
+                {
+                    value += 90;
+                    i--;
+                }
+                else 
+                {
+                    value += 100;
+                }
+                break;
+            case 'D':
+                if (i > 0 && s[i - 1] == 'C')
+                {
+                    value += 400;
+                    i--;
+                }
+                else 
+                {
+                    value += 500;
+                }
+                break;
+            case 'M':
+                if (i > 0 && s[i - 1] == 'C')
+                {
+                    value += 900;
+                    i--;
+                }
+                else 
+                {
+                    value += 1000;
+                }
+                break;
         }
     }
     return value;
